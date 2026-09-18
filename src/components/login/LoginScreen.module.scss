@@ -1,0 +1,30 @@
+.page { position: relative; display: grid; min-height: 100svh; place-items: center; overflow: hidden; isolation: isolate; background: #040404; transition: filter 1.2s ease, opacity 1.2s ease; }
+.page::before { position: absolute; z-index: 8; inset: -20%; pointer-events: none; content: ""; opacity: .1; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); animation: grain .8s steps(2) infinite; }
+.cathedral { position: absolute; z-index: -3; inset: 0; background: linear-gradient(90deg, rgba(2,2,2,.86), transparent 30% 70%, rgba(2,2,2,.9)), url("/images/cathedral-identification.webp") center / cover no-repeat; filter: grayscale(.7) sepia(.25) brightness(.38); transform: scale(1.03); }
+.vignette { position: absolute; z-index: 4; inset: 0; pointer-events: none; box-shadow: inset 0 0 19vw 8vw #010101; background: radial-gradient(circle at 50% 54%, transparent 0 20%, rgba(1,1,1,.33) 62%, #010101 100%); }
+.botanical { z-index: -1; object-fit: cover; object-position: 30% center; opacity: .3; filter: saturate(.62) brightness(.45); }
+.letter { position: relative; z-index: 6; width: min(87vw, 430px); padding: clamp(2.2rem, 5vw, 3.5rem); color: #2f281f; background: radial-gradient(circle at 83% 15%, rgba(108,69,30,.14), transparent 17%), repeating-linear-gradient(0deg, transparent 0 4px, rgba(62,43,25,.025) 5px), linear-gradient(128deg, #b7a581, #d8c9a8 50%, #a99470); box-shadow: 0 3rem 6rem rgba(0,0,0,.76), inset 0 0 4rem rgba(74,47,24,.23); clip-path: polygon(1% 0, 24% 1%, 48% 0, 71% 1%, 99% 0, 98% 25%, 100% 52%, 98% 79%, 99% 100%, 72% 99%, 45% 100%, 21% 98%, 0 100%, 1% 73%, 0 45%); text-align: center; transform: rotate(-.35deg); transition: transform 1.45s cubic-bezier(.2,.8,.2,1), opacity 1.1s ease, filter 1.2s ease; }
+.letter::after { position: absolute; inset: 12px; pointer-events: none; border: 1px solid rgba(65,45,27,.2); content: ""; }
+.letterFold { position: absolute; top: 5%; bottom: 5%; left: 51%; width: 1px; opacity: .22; background: #675440; box-shadow: 4px 0 13px rgba(255,247,219,.45); }
+.eyebrow, .status { position: relative; z-index: 2; margin: 0; color: rgba(56,45,32,.58); font-size: .58rem; letter-spacing: .23em; }
+.letter h1 { position: relative; z-index: 2; margin: .45rem 0 0; font-family: var(--display); font-size: clamp(2.9rem, 9vw, 4.4rem); font-weight: 400; }
+.hint { position: relative; z-index: 2; margin: .6rem auto 1.8rem; color: rgba(55,43,30,.66); font-family: var(--display); font-size: .95rem; font-style: italic; }
+.form { position: relative; z-index: 2; display: grid; gap: 1rem; }
+.form label { display: grid; gap: .35rem; text-align: left; }
+.form label span { color: rgba(55,43,30,.62); font-size: .57rem; letter-spacing: .2em; }
+.form input { width: 100%; padding: .68rem .15rem; border: 0; border-bottom: 1px solid rgba(55,43,30,.4); border-radius: 0; outline: 0; background: transparent; color: #211b15; font: inherit; letter-spacing: .08em; }
+.form input:focus { border-color: #3e3023; box-shadow: 0 9px 12px -13px #25180e; }
+.form button { margin-top: .8rem; padding: .8rem 1rem; border: 1px solid rgba(59,44,29,.45); background: rgba(75,53,31,.08); color: #2e241b; cursor: pointer; font-size: .62rem; letter-spacing: .22em; }
+.form button:hover, .form button:focus-visible { background: rgba(76,42,29,.16); border-color: #503a27; }
+.form button:disabled { cursor: wait; opacity: .55; }
+.status { min-height: 1em; margin-top: 1.25rem; }
+.error { color: #78303a; }
+.loginCandelabra { position: absolute !important; z-index: 2; right: 3vw; bottom: -6vh; width: clamp(180px, 24vw, 360px) !important; }
+.loginCandle { position: absolute !important; z-index: 3; bottom: -5vh; left: 8vw; width: clamp(90px, 12vw, 155px) !important; }
+.doorLight { position: absolute; z-index: 5; top: -15vh; left: 50%; width: 2px; height: 120vh; opacity: 0; background: #fff6d2; box-shadow: 0 0 3rem 1rem rgba(255,226,161,.2); transition: width 1.4s ease, opacity .4s ease; }
+.opening .doorLight { width: 42vw; opacity: .25; }
+.opening .letter { opacity: 0; filter: blur(9px); transform: scale(.94) rotate(-.35deg); }
+.opening { filter: brightness(1.2); }
+@keyframes grain { 0%{transform:translate(0)} 25%{transform:translate(-1%,1%)} 50%{transform:translate(1%,-1%)} 75%{transform:translate(1%,1%)} 100%{transform:translate(-1%,-1%)} }
+@media (max-width: 700px) { .loginCandelabra { right: -19vw; opacity: .7; } .loginCandle { left: -3vw; opacity: .74; } .letter { width: min(88vw, 390px); padding: 2rem 1.7rem; } }
+@media (prefers-reduced-motion: reduce) { .page::before { animation: none; } }

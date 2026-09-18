@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+npm-debug.log*
+.DS_Store
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+private-assets/artworks/*
+!private-assets/artworks/README.md
+private-assets/photos/*
+!private-assets/photos/README.md
+private-assets/audio/*
+!private-assets/audio/README.md
